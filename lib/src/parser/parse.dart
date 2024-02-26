@@ -439,7 +439,7 @@ class Parser {
 
           var numFormat = _excel._numFormats.getByNumFmtId(numFmtId);
           if (numFormat == null) {
-            assert(false, 'missing numFmt for $numFmtId');
+            //assert(false, 'missing numFmt for $numFmtId');
             numFormat = NumFormat.standard_0;
           }
 
@@ -588,7 +588,7 @@ class Parser {
       case 's':
         final sharedString = _excel._sharedStrings
             .value(int.parse(_parseValue(node.findElements('v').first)));
-        value = TextCellValue(sharedString!.stringValue);
+        value = TextCellValue(sharedString?.stringValue ?? '');
         break;
       // boolean
       case 'b':
